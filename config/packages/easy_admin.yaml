@@ -8,7 +8,7 @@ easy_admin:
         Client:
             class: App\Entity\Client
             list:
-                fields: ['nomClient', 'prenomClient', 'email', 'telephone', 'adresse']
+                fields: ['nomClient', 'prenomClient', 'email', 'telephone', 'adresse', { property: 'createAt', label: 'Date création' }, { property: 'updateAt', label: 'Date modification' }]
         Ville:
             class: App\Entity\Ville
             list:

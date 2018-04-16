@@ -41,6 +41,17 @@ class Client
      */
     private $adresse;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updateAt;
+
+
     public function getId()
     {
         return $this->id;
@@ -104,5 +115,37 @@ class Client
         $this->adresse = $adresse;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
+    }
+
+    /**
+     * @param mixed $createAt
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param mixed $updateAt
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
     }
 }
