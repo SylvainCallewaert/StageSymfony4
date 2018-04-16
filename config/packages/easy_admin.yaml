@@ -1,14 +1,19 @@
 easy_admin:
+    formats:
+        datetime: 'd/m/Y H:i:s'
+    edit:
+        title: 'Modification %%entity_name%%'
     entities:
         # Définition des entitées
         Societe:
             class: App\Entity\Societe
             list:
                 fields: ['nomSociete', 'siret']
-        Client:
-            class: App\Entity\Client
+        Contact:
+            class: App\Entity\Contact
             list:
-                fields: ['nomClient', 'prenomClient', 'email', 'telephone', 'adresse', { property: 'createAt', label: 'Date création' }, { property: 'updateAt', label: 'Date modification' }]
+                fields: ['nomContact', 'prenomContact', { property: 'email', type: 'email' }, { property: 'telephone', type: 'tel' },
+                 'adresse', { property: 'createAt', label: 'Date création' }, { property: 'updateAt', label: 'Date modification' }]
         Ville:
             class: App\Entity\Ville
             list:

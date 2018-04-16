@@ -5,10 +5,26 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
  */
-class Client
+class Contact
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Societe", inversedBy="contacts")
+     */
+    private $societe ;
+
+    public function setSociete ( Societe $societe )
+    {
+        $this -> societe = $societe ;
+    }
+
+    public function getSociete ()
+    {
+        return $this -> societe ;
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -19,12 +35,12 @@ class Client
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $nomClient;
+    private $nomContact;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $prenomClient;
+    private $prenomContact;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -57,26 +73,26 @@ class Client
         return $this->id;
     }
 
-    public function getNomClient(): ?string
+    public function getNomContact(): ?string
     {
-        return $this->nomClient;
+        return $this->nomContact;
     }
 
-    public function setNomClient(string $nomClient): self
+    public function setNomContact(string $nomContact): self
     {
-        $this->nomClient = $nomClient;
+        $this->nomContact = $nomContact;
 
         return $this;
     }
 
-    public function getPrenomClient(): ?string
+    public function getPrenomContact(): ?string
     {
-        return $this->prenomClient;
+        return $this->prenomContact;
     }
 
-    public function setPrenomClient(string $prenomClient): self
+    public function setPrenomContact(string $prenomContact): self
     {
-        $this->prenomClient = $prenomClient;
+        $this->prenomContact = $prenomContact;
 
         return $this;
     }

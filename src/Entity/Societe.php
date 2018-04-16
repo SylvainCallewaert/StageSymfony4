@@ -3,12 +3,29 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection ;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SocieteRepository")
  */
 class Societe
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="Contact", mappedBy="societe")
+     */
+    private $contacts ;
+
+    public function __construct ()
+    {
+        $this -> contacts = new ArrayCollection ();
+    }
+
+    public function getContacts ()
+    {
+        return $this -> contacts ;
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
