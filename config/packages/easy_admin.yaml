@@ -5,23 +5,47 @@ easy_admin:
         title: 'Modification %%entity_name%%'
     entities:
         # Définition des entitées
-        Societe:
-            class: App\Entity\Societe
-            list:
-                fields: ['nomSociete', 'siretSociete']
+
         Contact:
             class: App\Entity\Contact
+            # Mise en page de la page création d'un contact :
+            form:
+                fields:
+                    - { type: 'section', label: 'Contact : ', icon: 'user' }
+                    - { property: 'nomSociete', label: 'Société' }
+                    - { property: 'nomContact', label: 'Nom' }
+                    - { property: 'prenomContact', label: 'Prenom' }
+                    - { type: 'section', label: 'Informations : ', icon: 'phone',
+                       css_class: 'danger' }
+                    - { property: 'email', type: 'email' }
+                    - 'telephone'
+                    - { type: 'section', label: 'Adresse : ', icon: 'envelope-o',
+                       css_class: 'danger' }
+                    - 'adresse'
+                    - 'ville'
+                    - { type: 'section', label: 'Informations complémentaires : ', icon: 'information',
+                       css_class: 'danger' }
+                    - { property: 'createdAt', label: 'Date création' }
+                    - { property: 'updatedAt', label: 'Date modification' }
+                    - 'commentaire'
+            #Déclaration des attributs à afficher sur la page Contact :
             list:
-                fields: ['nomContact', 'prenomContact', { property: 'email', type: 'email' }, { property: 'telephone', type: 'tel' },
-                 'adresse', { property: 'createdAt', label: 'Date création' }, { property: 'updatedAt', label: 'Date modification' }]
-        Ville:
-            class: App\Entity\Ville
-            list:
-                fields: ['cp', 'ville', 'pays']
-        Commentaire:
-            class: App\Entity\Commentaire
-            list:
-                fields: ['commentaire']
+                fields: ['nomSociete','nomContact', 'prenomContact', { property: 'email', type: 'email' }, { property: 'telephone', type: 'tel' },
+                 'adresse', { property: 'createdAt', label: 'Date création' }, { property: 'updatedAt', label: 'Date modification' },'commentaire']
+
+        Societe:
+           class: App\Entity\Societe
+           list:
+               fields: ['nomSociete', 'siretSociete']
+#         Mis en commentaire des menu ville et commentaire :
+#        Ville:
+#            class: App\Entity\Ville
+#            list:
+#                fields: ['cp', 'ville', 'pays']
+#        Commentaire:
+#            class: App\Entity\Commentaire
+#            list:
+#                fields: ['commentaire']
     #Changement du nom du backend :
     site_name: 'Fabian <em style="font-size: 80%;"</em>'
     #Personnalisation du design :

@@ -14,13 +14,12 @@ class Contact
     /**
      * @ORM\ManyToOne(targetEntity="Societe", inversedBy="contacts")
      */
-    private $societe ;
+    public $nomSociete ;
 
     /**
      * @ORM\ManyToOne(targetEntity="Ville", inversedBy="contacts")
      */
     public $ville ;
-
 //    /**
 //     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="contact")
 //     */

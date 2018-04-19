@@ -73,6 +73,6 @@ class Societe
 
     public function __toString()
     {
-        return $this->nomSociete;
+        return "{$this->nomSociete},{$this->siretSociete}";
     }
 }

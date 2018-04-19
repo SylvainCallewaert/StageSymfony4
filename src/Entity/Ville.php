@@ -86,7 +86,9 @@ class Ville
 
     public function __toString()
     {
-        return $this->ville;
+        return "{$this->ville},{$this->cp},{$this->pays}";
+
+
     }
 
 }
