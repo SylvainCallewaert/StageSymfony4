@@ -8,12 +8,12 @@ easy_admin:
         Societe:
             class: App\Entity\Societe
             list:
-                fields: ['nomSociete', 'siret']
+                fields: ['nomSociete', 'siretSociete']
         Contact:
             class: App\Entity\Contact
             list:
                 fields: ['nomContact', 'prenomContact', { property: 'email', type: 'email' }, { property: 'telephone', type: 'tel' },
-                 'adresse', { property: 'createAt', label: 'Date création' }, { property: 'updateAt', label: 'Date modification' }]
+                 'adresse', { property: 'createdAt', label: 'Date création' }, { property: 'updatedAt', label: 'Date modification' }]
         Ville:
             class: App\Entity\Ville
             list:

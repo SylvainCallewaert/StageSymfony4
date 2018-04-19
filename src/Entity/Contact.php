@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection ;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
@@ -14,6 +15,31 @@ class Contact
      * @ORM\ManyToOne(targetEntity="Societe", inversedBy="contacts")
      */
     private $societe ;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ville", inversedBy="contacts")
+     */
+    public $ville ;
+
+//    /**
+//     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="contact")
+//     */
+//    public $commentaires ;
+
+    public function __construct ()
+    {
+//        $this -> commentaires = new ArrayCollection ();
+        $this->createdAt = new \datetime;
+        $this->updatedAt = new \datetime;
+    }
+
+
+
+    /**
+     * Contact constructor.
+     * @param $societe
+     */
+
 
     public function setSociete ( Societe $societe )
     {
@@ -53,20 +79,24 @@ class Contact
     private $telephone;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="text")
      */
-    private $createAt;
+    private $commentaire;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $updateAt;
+    private $createdAt;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
 
     public function getId()
     {
@@ -133,35 +163,49 @@ class Contact
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nomContact;
+    }
+
     /**
      * @return mixed
      */
-    public function getCreateAt()
+    public function getCommentaire()
     {
-        return $this->createAt;
+        return $this->commentaire;
     }
 
     /**
-     * @param mixed $createAt
+     * @param mixed $commentaire
      */
-    public function setCreateAt($createAt)
+    public function setCommentaire($commentaire)
     {
-        $this->createAt = $createAt;
+        $this->commentaire = $commentaire;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUpdateAt()
-    {
-        return $this->updateAt;
-    }
-
-    /**
-     * @param mixed $updateAt
-     */
-    public function setUpdateAt($updateAt)
-    {
-        $this->updateAt = $updateAt;
-    }
 }

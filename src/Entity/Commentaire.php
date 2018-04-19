@@ -4,11 +4,19 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentaireRepository")
  */
 class Commentaire
 {
+
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Contact", inversedBy="commentaires")
+//     */
+//    public $contact ;
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -37,4 +45,10 @@ class Commentaire
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->commentaire;
+    }
+
 }

@@ -25,7 +25,6 @@ class Societe
     {
         return $this -> contacts ;
     }
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -70,5 +69,10 @@ class Societe
         $this->siretSociete = $siretSociete;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nomSociete;
     }
 }
