@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil{% endblock %}
+
+
+{% block body %}
+<h1>Liste des sociétés</h1>
+
+<form>
+    <select name="societe/", size="1">
+        {% for societe in societes %}
+            <option value="{{ societe.id }}">{{ societe.nomSociete }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Afficher</button>
+</form>
+
+
+
+
+{% endblock %}
+
+
+

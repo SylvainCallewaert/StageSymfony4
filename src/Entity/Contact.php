@@ -14,12 +14,44 @@ class Contact
     /**
      * @ORM\ManyToOne(targetEntity="Societe", inversedBy="contacts")
      */
-    public $nomSociete ;
+    public $societe ;
+
+    /**
+     * @return mixed
+     */
+    public function getSociete()
+    {
+        return $this->societe;
+    }
+
+    /**
+     * @param mixed $societe
+     */
+    public function setSociete($societe)
+    {
+        $this->societe = $societe;
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity="Ville", inversedBy="contacts")
      */
     public $ville ;
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param mixed $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
 //    /**
 //     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="contact")
 //     */
@@ -32,23 +64,6 @@ class Contact
         $this->updatedAt = new \datetime;
     }
 
-
-
-    /**
-     * Contact constructor.
-     * @param $societe
-     */
-
-
-    public function setSociete ( Societe $societe )
-    {
-        $this -> societe = $societe ;
-    }
-
-    public function getSociete ()
-    {
-        return $this -> societe ;
-    }
 
     /**
      * @ORM\Id()

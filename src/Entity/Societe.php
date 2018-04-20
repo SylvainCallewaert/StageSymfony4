@@ -14,16 +14,11 @@ class Societe
     /**
      * @ORM\OneToMany(targetEntity="Contact", mappedBy="societe")
      */
-    private $contacts ;
+    public $contacts ;
 
     public function __construct ()
     {
         $this -> contacts = new ArrayCollection ();
-    }
-
-    public function getContacts ()
-    {
-        return $this -> contacts ;
     }
     /**
      * @ORM\Id()
@@ -73,6 +68,6 @@ class Societe
 
     public function __toString()
     {
-        return "{$this->nomSociete},{$this->siretSociete}";
+        return "{$this->nomSociete}";
     }
 }
