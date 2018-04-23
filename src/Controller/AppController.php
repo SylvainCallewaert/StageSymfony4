@@ -36,20 +36,20 @@ class AppController extends Controller
 
     }
     /**
-     * @Route("/societe/{id}", name="societe")
+     * @Route("/Contacts/{nomSociete}", name="afficherContact")
      */
 
-    public function afficherContacts($id)
+    public function afficherContacts(Request $request, $nomSociete )
     {
 //        Connexion base de données et récuperation des infos :
         $em = $this->getDoctrine()->getManager();
         //Appel de la classe société et recuperation d'un tableau
-        $societes = $em->getRepository('App:Societe')->find($id); //selection de toutes les société
+        $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les société
         $contacts = $em->getRepository('App:Contact')->findAll(); //selection de tous les clients
         $villes = $em->getRepository('App:Ville')->findAll(); //selection de toutes les villes
 
         return $this->render('/essai.html.twig',[
-            'societes'=>$societes,
+            'societe'=>$societes,
             'contacts'=>$contacts,
             'villes'=>$villes
         ]);
