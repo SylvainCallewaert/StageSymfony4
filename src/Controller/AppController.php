@@ -5,6 +5,9 @@ namespace  App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Societe;
+use App\Entity\Ville;
+use App\Entity\Contact;
 
 /**
  * Created by PhpStorm.
@@ -45,14 +48,13 @@ class AppController extends Controller
         $em = $this->getDoctrine()->getManager();
         //Appel de la classe société et recuperation d'un tableau
         $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les société
-        $contacts = $em->getRepository('App:Contact')->findAll(); //selection de tous les clients
-        $villes = $em->getRepository('App:Ville')->findAll(); //selection de toutes les villes
+        $contacts = $em->getRepository('App:Contact')->findBy(['societe' => $societes]); //selection de tous les clients
+//        $villes = $em->getRepository('App:Ville')->findBy(['contacts' => $contacts]); //selection de toutes les villes
 
         return $this->render('/essai.html.twig',[
             'societe'=>$societes,
             'contacts'=>$contacts,
-            'villes'=>$villes
+//            'villes'=>$villes
         ]);
-
     }
 }

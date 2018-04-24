@@ -38,10 +38,10 @@ easy_admin:
            list:
                fields: ['nomSociete', 'siretSociete']
 #         Mis en commentaire des menu ville et commentaire :
-#        Ville:
-#            class: App\Entity\Ville
-#            list:
-#                fields: ['cp', 'ville', 'pays']
+        Ville:
+            class: App\Entity\Ville
+            list:
+                fields: ['cp', 'ville', 'pays']
 #        Commentaire:
 #            class: App\Entity\Commentaire
 #            list:
