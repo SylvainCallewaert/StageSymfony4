@@ -51,7 +51,7 @@ class AppController extends Controller
         $contacts = $em->getRepository('App:Contact')->findBy(['societe' => $societes]); //selection de tous les clients
 //        $villes = $em->getRepository('App:Ville')->findBy(['contacts' => $contacts]); //selection de toutes les villes
 
-        return $this->render('/essai.html.twig',[
+        return $this->render('/afficherContact.html.twig',[
             'societe'=>$societes,
             'contacts'=>$contacts,
 //            'villes'=>$villes

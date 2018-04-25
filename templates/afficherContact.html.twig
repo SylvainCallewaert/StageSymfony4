@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+    {{ parent() }}
+    {% block title %}{{ societe.nomSociete }}{% endblock %}
+{% endblock %}
 
-{% block title %}{{ societe.nomSociete }}{% endblock %}
+
 
 
 {% block body %}
+    {{ parent() }}
 <h1>société : {{ societe.nomSociete }}<br /></h1>
     Siret : {{ societe.siretSociete }}<br />
         {% for contact in contacts %}

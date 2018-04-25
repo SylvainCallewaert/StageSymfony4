@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Accueil{% endblock %}
+{% block head %}
+    {{ parent() }}
+    {% block title %}Accueil{% endblock %}
+{% endblock %}
 
 
 {% block body %}
+    {{ parent() }}
 <h1>Liste des sociétés</h1>
 
 {% for societe in societes %}
