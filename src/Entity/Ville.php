@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection ;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VilleRepository")
@@ -21,6 +20,7 @@ class Ville
         $this -> contacts = new ArrayCollection ();
     }
 
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -29,35 +29,18 @@ class Ville
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=5)
-     */
-    private $cp;
-
-    /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=45)
      */
     private $ville;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255)
      */
-    private $pays;
+    private $cp;
 
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getCp(): ?string
-    {
-        return $this->cp;
-    }
-
-    public function setCp(string $cp): self
-    {
-        $this->cp = $cp;
-
-        return $this;
     }
 
     public function getVille(): ?string
@@ -72,23 +55,21 @@ class Ville
         return $this;
     }
 
-    public function getPays(): ?string
+    public function getCp(): ?string
     {
-        return $this->pays;
+        return $this->cp;
     }
 
-    public function setPays(string $pays): self
+    public function setCp(string $cp): self
     {
-        $this->pays = $pays;
+        $this->cp = $cp;
 
         return $this;
     }
 
     public function __toString()
     {
-        return "{$this->ville},{$this->cp},{$this->pays}";
-
-
+        return "{$this->ville},{$this->cp}";
     }
 
 }

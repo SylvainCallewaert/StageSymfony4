@@ -37,17 +37,19 @@ easy_admin:
            class: App\Entity\Societe
            list:
                fields: ['nomSociete', 'siretSociete']
-#         Mis en commentaire des menu ville et commentaire :
+#         Mis en commentaire du menu commentaire :
         Ville:
             class: App\Entity\Ville
             list:
-                fields: ['cp', 'ville', 'pays']
+                fields: ['cp', 'ville']
+
 #        Commentaire:
 #            class: App\Entity\Commentaire
 #            list:
 #                fields: ['commentaire']
     #Changement du nom du backend :
-    site_name: 'Fabian <em style="font-size: 80%;"</em>'
+    site_name: 'Fabian <em style="font-size: 80%;"</em><a style="font-size: 200% ;" href="/">Page Accueil</a>'
+
     #Personnalisation du design :
     design:
             brand_color: '#1ABC9C'
