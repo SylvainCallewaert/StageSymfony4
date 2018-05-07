@@ -28,3 +28,6 @@ fos_user:
         sender_name:    FABIAN
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift
+#    registration:
+#        form:
+#            name: app_user_registration
