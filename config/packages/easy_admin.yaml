@@ -48,7 +48,7 @@ easy_admin:
 #            list:
 #                fields: ['commentaire']
     #Changement du nom du backend :
-    site_name: 'Fabian <em style="font-size: 80%;"</em><a style="font-size: 200% ;" href="/">Page Accueil</a>'
+    site_name: '<em style="font-size: 80%;"> Fabian </em><a style="font-size: 200% ; color: white;" href="/">Page Accueil </a>'
 
     #Personnalisation du design :
     design:

@@ -48,12 +48,12 @@ class AppController extends Controller
         $em = $this->getDoctrine()->getManager();
         //Appel de la classe société et recuperation d'un tableau
         $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les société
-        $contacts = $em->getRepository('App:Contact')->findBy(['societe' => $societes]); //selection de tous les clients
+//        $contacts = $em->getRepository('App:Contact')->findBy(['societe' => $societes]); //selection de tous les clients
 //        $villes = $em->getRepository('App:Ville')->findBy(['societe' => $societes]); //selection de toutes les villes
 
         return $this->render('/afficherContact.html.twig',[
             'societe'=>$societes,
-            'contacts'=>$contacts,
+//            'contacts'=>$contacts,
 //            'villes'=>$villes
         ]);
     }

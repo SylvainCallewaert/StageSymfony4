@@ -12,12 +12,13 @@
     {{ parent() }}
 <h1>société : {{ societe.nomSociete }}<br /></h1>
     Siret : {{ societe.siretSociete }}<br />
-        {% for contact in contacts %}
+        {% for contact in societe.contacts %}
             <div style="border:1px solid;padding:5px;">
                 Nom : {{ contact.nomContact }}<br />
                 Prénom : {{ contact.prenomContact }}<br />
                 Email : {{ contact.email }}<br />
                 Adresse : {{ contact.adresse }}<br />
+                Ville : {{ contact.ville.ville }}
                 {#{% for ville in villes %}#}
                     {#Code Postal : {{ ville.cp }}<br />#}
                     {#Ville : {{ ville.ville }}<br />#}
