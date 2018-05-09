@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+    {% block title %}{{ societe.nomSociete }}{% endblock %}
+{% endblock %}
+
+
+
+
+{% block body %}
+    {{ parent() }}
+<h1>société : {{ societe.nomSociete }}<br /></h1>
+    Siret : {{ societe.siretSociete }}<br />
+        {% for projet in societe.projets %}
+            <div style="border:1px solid;padding:5px;">
+                Nom du projet : {{ projet.nomProjet }}<br />
+                {#Prénom : {{ contact.prenomContact }}<br />#}
+                {#Email : {{ contact.email }}<br />#}
+                {#Adresse : {{ contact.adresse }}<br />#}
+                {#Ville : {{ contact.ville.ville }}#}
+            </div>
+        {% endfor %}
+{% endblock %}
+
+
+

@@ -60,12 +60,19 @@ easy_admin:
            class: App\Entity\Societe
            list:
                fields: ['nomSociete', 'siretSociete']
-#         Mis en commentaire du menu commentaire :
+
         Ville:
             class: App\Entity\Ville
             list:
                 fields: ['cp', 'ville']
 
+        Projet:
+           class: App\Entity\Projet
+           list:
+               fields: ['societe','nomProjet']
+
+
+#         Mis en commentaire du menu commentaire :
 #        Commentaire:
 #            class: App\Entity\Commentaire
 #            list:

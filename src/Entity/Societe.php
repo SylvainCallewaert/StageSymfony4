@@ -16,9 +16,15 @@ class Societe
      */
     public $contacts ;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Projet", mappedBy="societe")
+     */
+    public $projets ;
+
     public function __construct ()
     {
         $this -> contacts = new ArrayCollection ();
+        $this -> projets = new ArrayCollection ();
     }
     /**
      * @ORM\Id()

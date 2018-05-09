@@ -29,11 +29,13 @@ class AppController extends Controller
         //Appel de la classe société et recuperation d'un tableau
         $societes = $em->getRepository('App:Societe')->findAll(); //selection de toutes les société
         $contacts = $em->getRepository('App:Contact')->findAll(); //selection de tous les clients
+        $projets = $em->getRepository('App:Projet')->findAll(); //selection de toutes les société
         $villes = $em->getRepository('App:Ville')->findAll(); //selection de toutes les villes
 
         return $this->render('/accueil.html.twig',[
             'societes'=>$societes,
             'contacts'=>$contacts,
+            'projets'=>$projets,
             'villes'=>$villes
         ]);
 
@@ -57,4 +59,22 @@ class AppController extends Controller
 //            'villes'=>$villes
         ]);
     }
+
+    /**
+     * @Route("/Projets/{nomSociete}", name="afficherProjet")
+     */
+
+    public function afficherProjets(Request $request, $nomSociete )
+    {
+//        Connexion base de données et récuperation des infos :
+        $em = $this->getDoctrine()->getManager();
+        //Appel de la classe société et recuperation d'un tableau
+        $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les société
+
+        return $this->render('/afficherProjet.html.twig',[
+            'societe'=>$societes,
+
+        ]);
+    }
+
 }
