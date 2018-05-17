@@ -71,6 +71,21 @@ easy_admin:
            list:
                fields: ['societe','nomProjet']
 
+        Information:
+           class: App\Entity\Information
+           list:
+               fields: ['societe','information']
+
+        Temps:
+           class: App\Entity\Temps
+           list:
+               fields: ['societe','temps']
+
+        Fichier:
+           class: App\Entity\Fichier
+           list:
+               fields: ['societe','fichier']
+
 
 #         Mis en commentaire du menu commentaire :
 #        Commentaire:

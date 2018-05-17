@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Societe;
 use App\Entity\Ville;
 use App\Entity\Contact;
+use App\Entity\Projet;
 
 /**
  * Created by PhpStorm.
@@ -41,15 +42,16 @@ class AppController extends Controller
 
     }
     /**
-     * @Route("/Contacts/{nomSociete}", name="afficherContact")
+     * @Route("/Contacts/{id}", name="afficherContact")
      */
 
-    public function afficherContacts(Request $request, $nomSociete )
+    public function afficherContacts(Request $request, $id )
     {
 //        Connexion base de données et récuperation des infos :
         $em = $this->getDoctrine()->getManager();
         //Appel de la classe société et recuperation d'un tableau
-        $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les société
+//        $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les sociétés
+        $societes =$em->getRepository('App:Societe')->find($id);
 //        $contacts = $em->getRepository('App:Contact')->findBy(['societe' => $societes]); //selection de tous les clients
 //        $villes = $em->getRepository('App:Ville')->findBy(['societe' => $societes]); //selection de toutes les villes
 
@@ -61,20 +63,22 @@ class AppController extends Controller
     }
 
     /**
-     * @Route("/Projets/{nomSociete}", name="afficherProjet")
+     * @Route("/Projets/{id}", name="afficherProjet")
      */
 
-    public function afficherProjets(Request $request, $nomSociete )
+    public function afficherProjets(Request $request, $id )
     {
 //        Connexion base de données et récuperation des infos :
         $em = $this->getDoctrine()->getManager();
         //Appel de la classe société et recuperation d'un tableau
-        $societes = $em->getRepository('App:Societe')->findOneBy(['nomSociete' => $nomSociete]); //selection de toutes les société
-
+        $societe = $em->getRepository('App:Societe')->find($id); //selection de toutes les société
+//dump($societe);
+//die('ici');
         return $this->render('/afficherProjet.html.twig',[
-            'societe'=>$societes,
+            'societe'=>$societe,
 
         ]);
     }
+
 
 }

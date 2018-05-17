@@ -13,25 +13,11 @@
 {% for societe in societes %}
     <div style="border:1px solid;padding:5px;">
         {{ societe.nomSociete }}<br />
-        <a href="{{ path('afficherContact', {'nomSociete': societe.nomSociete}) }}">Voir les contacts</a><br />
-        <a href="{{ path('afficherProjet', {'nomSociete': societe.nomSociete}) }}">Voir les projets</a><br />
+        <a href="{{ path('afficherContact', {'id': societe.id}) }}">Voir les contacts</a><br />
+        <a href="{{ path('afficherProjet', {'id': societe.id}) }}">Voir les projets</a><br />
     </div>
+
 {% endfor %}
-
-
-
-{#<form>#}
-    {#<select name="societe/", size="1">#}
-        {#{% for societe in societes %}#}
-            {#<option value="{{ societe.id }}">{{ societe.nomSociete }}</option>#}
-            {#<a href="{{ path('afficherContact', {'societe': societe.id}) }}">Voir le détail</a><br />#}
-        {#{% endfor %}#}
-    {#</select>#}
-    {#<button type="submit">Afficher</button>#}
-{#</form>#}
-
-
-
 
 {% endblock %}
 
