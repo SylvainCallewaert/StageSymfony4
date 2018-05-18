@@ -57,9 +57,9 @@ easy_admin:
                  'adresse', { property: 'createdAt', label: 'Date création' }, { property: 'updatedAt', label: 'Date modification' },'commentaire']
 
         Societe:
-           class: App\Entity\Societe
-           list:
-               fields: ['nomSociete', 'siretSociete']
+            class: App\Entity\Societe
+            list:
+                fields: ['nomSociete', 'siretSociete']
 
         Ville:
             class: App\Entity\Ville
@@ -67,24 +67,37 @@ easy_admin:
                 fields: ['cp', 'ville']
 
         Projet:
-           class: App\Entity\Projet
-           list:
-               fields: ['societe','nomProjet']
+            class: App\Entity\Projet
+            form:
+                fields:
+                    - { property: 'societe', label: 'Société' }
+                    - { property: 'nomProjet', label: 'Nom du projet' }
+#                    - { property: 'temps', label: 'Temps' }
+#                    - { property: 'fichier', label: 'Fichier' }
+            list:
+                fields: ['societe','nomProjet']
 
         Information:
-           class: App\Entity\Information
-           list:
-               fields: ['societe','information']
+            class: App\Entity\Information
+            form:
+                fields:
+                    - { property: 'projet', label: 'Projet' }
+                    - { property: 'information', label: 'Information' }
+            list:
+                fields:
+                    - { property: 'projet', label: 'Projet' }
+                    - { property: 'information', label: 'Information' }
+
 
         Temps:
-           class: App\Entity\Temps
-           list:
-               fields: ['societe','temps']
+            class: App\Entity\Temps
+            list:
+                fields: ['societe','temps']
 
         Fichier:
-           class: App\Entity\Fichier
-           list:
-               fields: ['societe','fichier']
+            class: App\Entity\Fichier
+            list:
+                fields: ['societe','fichier']
 
 
 #         Mis en commentaire du menu commentaire :

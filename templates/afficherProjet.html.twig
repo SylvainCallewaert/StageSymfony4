@@ -13,11 +13,13 @@
         {% for projet in societe.projets %}
             <div style="border:1px solid;padding:5px;">
                 Nom du projet : {{ projet.nomProjet }}<br />
-                {% if informations is defined %}
+
+                Information :
+                <div style="padding-left:60px;">
                 {% for information in projet.informations %}
-                    Information : {{ information.information }}
+                    - {{ information.information }}<br />
                 {% endfor %}
-                {% endif %}
+                </div>
                 {% if temps is defined %}
                     Temps : {{ projet.temps.temps }}
                 {% endif %}
