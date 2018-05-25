@@ -1,0 +1,3 @@
+vich_uploader:
+    path: '%kernel.root_dir%/../web/uploads/fichiers'
+    prefix: /admin/fichier/{fichier}

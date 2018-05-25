@@ -96,8 +96,16 @@ easy_admin:
 
         Fichier:
             class: App\Entity\Fichier
+            form:
+                fields:
+                    - { property: 'projet', label: 'Projet' }
+#                    - { property: 'fichier', label: 'Fichier' }
+                    - { property: 'fichier', template: 'fichier.html.twig' }
+                    - { property: 'fichierFile', type: 'vich_file' }
             list:
-                fields: ['societe','fichier']
+                fields:
+                    - { property: 'projet', label: 'Projet' }
+                    - { property: 'fichier', template: 'fichier.html.twig', base_path: '%app.path.projet_fichiers%' }
 
 
 #         Mis en commentaire du menu commentaire :
@@ -110,6 +118,7 @@ easy_admin:
 
     #Personnalisation du design :
     design:
-            brand_color: '#1ABC9C'
-            #color_scheme: 'light'
-            #...
+        brand_color: '#1ABC9C'
+        #color_scheme: 'light'
+        #...
+#        form_theme: ['horizontal', 'VichUploaderBundle:Form:fields.html.twig']

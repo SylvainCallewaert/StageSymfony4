@@ -2,6 +2,7 @@
 
 namespace  App\Controller;
 
+use App\Entity\Fichier;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -79,6 +80,5 @@ class AppController extends Controller
 
         ]);
     }
-
 
 }

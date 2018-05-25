@@ -6,4 +6,6 @@ index:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
+#
+#vich_uploader:
+#
