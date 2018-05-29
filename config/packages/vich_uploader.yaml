@@ -6,5 +6,5 @@ vich_uploader:
 #            upload_destination: '%kernel.root_dir%/../web/uploads/images/products'
         projet_fichiers:
             uri_prefix: '%app.path.projet_fichiers%'
-            upload_destination: '%kernel.root_dir%/../web/uploads/fichiers'
+            upload_destination: '%kernel.root_dir%/../public/uploads/fichiers'
             delete_on_remove:   true

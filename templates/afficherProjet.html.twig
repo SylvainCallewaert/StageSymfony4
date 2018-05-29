@@ -23,9 +23,11 @@
                 {% if temps is defined %}
                     Temps : {{ projet.temps.temps }}
                 {% endif %}
-                {% if fichier is defined %}
-                    Fichier : {{ projet.fichier.fichier }}
-               {% endif %}
+                {#{% if fichiers is defined %}#}
+                {% for fichier in projet.fichiers %}
+                    Fichier : {{ projet.fichier.nomFichier }}
+                {% endfor %}
+               {#{% endif %}#}
 
             </div>
         {% endfor %}

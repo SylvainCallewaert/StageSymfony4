@@ -99,13 +99,16 @@ easy_admin:
             form:
                 fields:
                     - { property: 'projet', label: 'Projet' }
-#                    - { property: 'fichier', label: 'Fichier' }
-                    - { property: 'fichier', template: 'fichier.html.twig' }
+                    - { property: 'nomFichier', label: 'Nom du fichier' }
+#                    - { property: 'fichier', template: 'fichier.html.twig' }
                     - { property: 'fichierFile', type: 'vich_file' }
+
             list:
                 fields:
                     - { property: 'projet', label: 'Projet' }
-                    - { property: 'fichier', template: 'fichier.html.twig', base_path: '%app.path.projet_fichiers%' }
+                    - { property: 'nomFichier', label: 'Nom du fichier' }
+                    - { property: 'fichier', label: 'Fichier', template: 'fichier.html.twig', base_path: '%app.path.projet_fichiers%' }
+
 
 
 #         Mis en commentaire du menu commentaire :

@@ -1,1 +1,4 @@
-<a href="{{ asset(value, 'projet_fichiers') }}">fichier (PDF)</a>
+
+{#<a href="{{ asset(value, 'projet_fichiers') }}">{{ fichier }}</a>#}
+{#{% date = new DateTime() %}#}
+<a href="{{ field_options.base_path ~ '/' ~ value }}">{{ value }}</a>
