@@ -5,6 +5,7 @@ easy_admin:
         title: 'Modification %%entity_name%%'
     entities:
         # Définition des entitées
+#Affichage des champs de la table User pour la liste et le formulaire
         User:
             class: App\Entity\User
             form:
@@ -29,6 +30,8 @@ easy_admin:
                     - { property: 'plainPassword', type_options: { required: true} }
                     # ...
                 form_options: { validation_groups: ['Registration'] }
+
+#Affichage des champs de la table Contact pour la liste et le formulaire
         Contact:
             class: App\Entity\Contact
             # Mise en page de la page création d'un contact :
@@ -56,16 +59,18 @@ easy_admin:
                 fields: ['societe','nomContact', 'prenomContact', { property: 'email', type: 'email' }, { property: 'telephone', type: 'tel' },
                  'adresse', { property: 'createdAt', label: 'Date création' }, { property: 'updatedAt', label: 'Date modification' },'commentaire']
 
+#Affichage des champs de la table Societe pour la liste et le formulaire
         Societe:
             class: App\Entity\Societe
             list:
                 fields: ['nomSociete', 'siretSociete']
 
+#Affichage des champs de la table Ville pour la liste et le formulaire
         Ville:
             class: App\Entity\Ville
             list:
                 fields: ['cp', 'ville']
-
+#Affichage des champs de la table Projet pour la liste et le formulaire
         Projet:
             class: App\Entity\Projet
             form:
@@ -77,6 +82,7 @@ easy_admin:
             list:
                 fields: ['societe','nomProjet']
 
+#Affichage des champs de la table Information pour la liste et le formulaire
         Information:
             class: App\Entity\Information
             form:
@@ -87,13 +93,13 @@ easy_admin:
                 fields:
                     - { property: 'projet', label: 'Projet' }
                     - { property: 'information', label: 'Information' }
-
+#Affichage des champs de la table Temps pour la liste et le formulaire
 
         Temps:
             class: App\Entity\Temps
             list:
                 fields: ['societe','temps']
-
+#Affichage des champs de la table Fichier pour la liste et le formulaire
         Fichier:
             class: App\Entity\Fichier
             form:

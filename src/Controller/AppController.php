@@ -20,6 +20,9 @@ use App\Entity\Projet;
 class AppController extends Controller
 {
 
+//    Création de la route pour la page d'accueil
+//    On y ajoute dans la fonction la connexion à la base de données et les valeurs qu'on retourne à la page
+
     /**
      * @Route("/accueil", name="accueil")
      */
